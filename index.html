@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Catálogo digital demonstrativo para pequenos comerciantes.">
+  <title>Vitrine — Catálogo Digital</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">CATÁLOGO DEMONSTRATIVO · PERSONALIZE PARA SUA LOJA</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Página inicial">
+      <span class="brand-mark">V</span>
+      <span><strong id="storeName">VITRINE</strong><small id="storeSubtitle">CATÁLOGO DIGITAL</small></span>
+    </a>
+    <button class="icon-button cart-button" id="cartButton" aria-label="Ver pedido">
+      <span aria-hidden="true">▤</span><span>Meu pedido</span><b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" id="heroEyebrow">CURADORIA • QUALIDADE • ESTILO</p>
+        <h1 id="heroTitle">Encontre o que<br><em>combina com você.</em></h1>
+        <p class="hero-description" id="heroDescription">Explore nossa seleção e fale diretamente com a loja para consultar disponibilidade e finalizar seu pedido.</p>
+        <a class="primary-button" href="#produtos">Explorar produtos <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Imagem abstrata decorativa">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-disc"></div>
+        <div class="art-card"><span>COLEÇÃO</span><strong>01</strong><small>SELEÇÃO DA LOJA</small></div>
+        <span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✦</span>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Informações">
+      <div><span class="trust-icon">◇</span><span><strong>Seleção especial</strong><small>Produtos escolhidos pela loja</small></span></div>
+      <div><span class="trust-icon">↗</span><span><strong>Atendimento direto</strong><small>Tire dúvidas pelo WhatsApp</small></span></div>
+      <div><span class="trust-icon">♡</span><span><strong>Compra assistida</strong><small>Confirme estoque e entrega</small></span></div>
+    </section>
+
+    <section class="catalog-section" id="produtos">
+      <div class="section-heading">
+        <div><p class="eyebrow">DESCUBRA A COLEÇÃO</p><h2>Nossa vitrine<span>.</span></h2></div>
+        <p class="demo-note">Os itens abaixo são exemplos fictícios para demonstração.</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Buscar produtos..." autocomplete="off" aria-label="Buscar produtos"></label>
+        <label class="select-wrap"><span class="sr-only">Categoria</span><select id="categoryFilter"><option value="all">Todas as categorias</option></select></label>
+        <label class="select-wrap"><span class="sr-only">Ordenar</span><select id="sortSelect"><option value="featured">Em destaque</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option><option value="name">Nome A–Z</option></select></label>
+      </div>
+      <div class="results-line"><span id="resultsCount">0 produtos</span><button class="text-button" id="clearFilters">Limpar filtros</button></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><span>⌕</span><h3>Nenhum produto encontrado</h3><p>Tente outro termo ou limpe os filtros.</p></div>
+    </section>
+
+    <section class="contact-banner">
+      <div><p class="eyebrow">PRECISA DE AJUDA?</p><h2>Estamos aqui para<br><em>ajudar você.</em></h2><p>Fale com a equipe para consultar tamanhos, estoque, entrega e formas de pagamento.</p></div>
+      <a class="primary-button light-button" id="contactButton" target="_blank" rel="noopener">Conversar no WhatsApp <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">V</span><span><strong id="footerStoreName">VITRINE</strong><small>CATÁLOGO DIGITAL</small></span></a>
+    <p>Catálogo online demonstrativo. Confirme preços, estoque e condições diretamente com a loja.</p>
+    <span>© <span id="year"></span> <span id="footerStoreName2">Vitrine</span></span>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modalCategory">CATEGORIA</p><h2 id="modalTitle">Produto</h2>
+        <p class="modal-price" id="modalPrice"></p><p id="modalDescription"></p>
+        <p class="demo-warning">Produto fictício de demonstração. Substitua por um item real antes de publicar para clientes.</p>
+        <label class="quantity-label">Quantidade <span><button id="qtyMinus" aria-label="Diminuir quantidade">−</button><b id="qtyValue">1</b><button id="qtyPlus" aria-label="Aumentar quantidade">+</button></span></label>
+        <button class="primary-button full-button" id="addToCart">Adicionar ao pedido</button>
+        <button class="secondary-button full-button" id="modalWhatsApp">Consultar no WhatsApp ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-backdrop hidden" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Meu pedido" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">SUA SELEÇÃO</p><h2>Meu pedido</h2></div><button class="modal-close" id="cartClose" aria-label="Fechar pedido">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer"><p class="cart-disclaimer">Pedido sujeito à confirmação de disponibilidade e preço pela loja.</p><div class="cart-total"><span>Total estimado</span><strong id="cartTotal">R$ 0,00</strong></div><button class="primary-button full-button" id="checkoutButton">Enviar pedido pelo WhatsApp ↗</button><button class="text-button clear-cart" id="emptyCart">Esvaziar pedido</button></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="products.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
